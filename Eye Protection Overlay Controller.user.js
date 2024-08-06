@@ -6,7 +6,7 @@
 
 // @namespace    http://tampermonkey.net/
 
-// @version      1.0
+// @version      1.2
 
 // @description  Add a floating button to control the overlay opacity
 
@@ -71,10 +71,12 @@
     // 滑块值改变事件
 
     var slider = sliderContainer.querySelector('input[type="range"]');
+    slider.value = savedOpacity ? parseFloat(savedOpacity) : 0.5;
 
     slider.addEventListener('input', function() {
 
         overlay.style.backgroundColor = 'rgba(0, 0, 0, ' + slider.value + ')';
+        localStorage.setItem('overlayOpacity', slider.value);
 
     });
 
@@ -156,7 +158,7 @@
 
                 <label for="opacity-slider">Overlay Opacity:</label>
 
-                <input type="range" id="opacity-slider" min="0" max="1" step="0.01" value="0.5">
+                <input type="range" id="opacity-slider" min="0" max="1" step="0.01">
 
             </div>
 
