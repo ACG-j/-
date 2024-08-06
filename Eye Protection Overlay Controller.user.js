@@ -18,9 +18,9 @@
 
 // @run-at       document-end
 
-// @downloadURL https://raw.githubusercontent.com/ACG-j/blog/master/Eye Protection Overlay Controller.user.js
+// @downloadURL https://cdn.jsdelivr.net/gh/acg-j/TampermonkeyJS@master/Eye%20Protection%20Overlay%20Controller.user.js
 
-// @updateURL https://raw.githubusercontent.com/ACG-j/blog/master/Eye Protection Overlay Controller.user.js
+// @updateURL https://cdn.jsdelivr.net/gh/acg-j/TampermonkeyJS@master/Eye%20Protection%20Overlay%20Controller.user.js
 
 // ==/UserScript==
 
