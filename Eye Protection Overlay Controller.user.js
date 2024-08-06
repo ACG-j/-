@@ -18,9 +18,9 @@
 
 // @run-at       document-end
 
-// @downloadURL https://cdn.jsdelivr.net/gh/acg-j/TampermonkeyJS@master/Eye%20Protection%20Overlay%20Controller.user.js
+// @downloadURL https://cdn.jsdelivr.net/gh/acg-j/TampermonkeyJS@latest/Eye%20Protection%20Overlay%20Controller.user.js
 
-// @updateURL https://cdn.jsdelivr.net/gh/acg-j/TampermonkeyJS@master/Eye%20Protection%20Overlay%20Controller.user.js
+// @updateURL https://cdn.jsdelivr.net/gh/acg-j/TampermonkeyJS@latest/Eye%20Protection%20Overlay%20Controller.user.js
 
 // ==/UserScript==
 
@@ -40,6 +40,15 @@
         // 创建滑块容器
 
         var sliderContainer = createSliderContainer(overlay);
+
+        var savedOpacity = localStorage.getItem('overlayOpacity');
+
+        if (savedOpacity) {
+            overlay.style.backgroundColor = 'rgba(0, 0, 0,' + savedOpacity + ')';
+        } else {
+            overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)'; // 初始透明度
+        }
+
         }
 
 
@@ -86,8 +95,6 @@
         div.style.width = '100%';
 
         div.style.height = '100%';
-
-        div.style.backgroundColor = 'rgba(0, 0, 0, 0.5)'; // 初始透明度
 
         div.style.zIndex = '9999';
 
