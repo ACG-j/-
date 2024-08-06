@@ -49,7 +49,7 @@
             overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)'; // 初始透明度
         }
 
-        }
+    }
 
 
     // 将元素添加到页面
@@ -59,6 +59,8 @@
     document.body.appendChild(controlButton);
 
     document.body.appendChild(sliderContainer);
+
+
 
     // 控制按钮点击事件
 
@@ -71,11 +73,13 @@
     // 滑块值改变事件
 
     var slider = sliderContainer.querySelector('input[type="range"]');
+
     slider.value = savedOpacity ? parseFloat(savedOpacity) : 0.5;
 
     slider.addEventListener('input', function() {
 
         overlay.style.backgroundColor = 'rgba(0, 0, 0, ' + slider.value + ')';
+
         localStorage.setItem('overlayOpacity', slider.value);
 
     });
@@ -124,9 +128,11 @@
 
         button.style.zIndex = '10000';
 
-        button.style.padding = '10px';
+        button.style.padding = '7px';
 
-        button.style.borderRadius = '20px';
+        button.style.borderRadius = '100px';
+
+        button.style.backgroundColor = 'gray';
 
         // 可以添加更多样式
 
@@ -150,22 +156,31 @@
 
         container.style.zIndex = '10000';
 
+        container.style.padding = '1px';
+
+        container.style.backgroundColor = 'gray';
+
+        container.style.borderRadius = '10px';
+
+        container.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.2)';
+
         container.style.display = 'none'; // 默认隐藏
 
         container.innerHTML = `
 
-            <div style="padding: 10px; background: white; border-radius: 5px;">
+            <div style="padding: 10px; background: gray; border-radius: 5px;">
 
                 <label for="opacity-slider">Overlay Opacity:</label>
 
                 <input type="range" id="opacity-slider" min="0" max="1" step="0.01">
 
             </div>
-
+            <style>#opacity-slider-container{user-select:none;}#opacity-slider{-webkit-appearance:none;width:200px;height:10px;background:#d3d3d3;outline:none;opacity:0.7;transition:opacity .2s;}#opacity-slider:hover{opacity:1;}#opacity-slider::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:20px;height:20px;background:#4caf50;cursor:pointer;border-radius:50%;}</style>
         `;
 
         return container;
 
     }
+
 
 })();
